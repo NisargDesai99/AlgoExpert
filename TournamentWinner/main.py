@@ -24,7 +24,6 @@ def tournament_winner(competitions, results):
     max_key = ''
     max_value = -1
     for curr_key, curr_value in team_records.items():
-        print(max_key, max_value, ';', curr_key, curr_value)
         if curr_value > max_value:
             max_key = curr_key
             max_value = curr_value
@@ -35,8 +34,13 @@ def tournament_winner(competitions, results):
 if __name__ == '__main__':
 
     test_cases = json.load(open('./inputs.json'))
+    cases_passed = True
+
     for test_case in test_cases:
         winner = tournament_winner(test_case['input']['competitions'], test_case['input']['results'])
+        cases_passed = cases_passed and (winner == test_case['expected_output'])
         print(f'winner: {winner}')
+    
+    print(f'all cases passed: {cases_passed}')
 
 
