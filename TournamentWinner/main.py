@@ -1,4 +1,6 @@
 import json
+# import global_vars
+import os
 
 
 def tournament_winner(competitions, results):
@@ -33,14 +35,19 @@ def tournament_winner(competitions, results):
 
 if __name__ == '__main__':
 
-    test_cases = json.load(open('./inputs.json'))
+    test_cases_path = os.path.expanduser('~/Documents/Practice/AlgoExpert/TournamentWinner/inputs.json')
+    # file_path = f'{PROJECT_PATH}/TournamentWinner/inputs.json'
+
+    test_cases = json.load(open(test_cases_path))
     cases_passed = True
 
+    counter = 1
     for test_case in test_cases:
         winner = tournament_winner(test_case['input']['competitions'], test_case['input']['results'])
         cases_passed = cases_passed and (winner == test_case['expected_output'])
-        print(f'winner: {winner}')
+        print(f'case {counter} winner: {winner}')
+        counter += 1
     
-    print(f'all cases passed: {cases_passed}')
+    print(f'\nall cases passed: {cases_passed}\n')
 
 
