@@ -2,11 +2,12 @@
 import os
 import json
 import unittest
+import global_vars
 
 class TestSolutions(unittest.TestCase):
 
     def read_test_cases(self, problem_dir):
-        path = os.path.expanduser(f'D:/Documents/Practice/AlgoExpert/{problem_dir}/test_cases.json')
+        path = f'{global_vars.PROJECT_PATH}/{problem_dir}/test_cases.json'
         test_cases_file = open(path)
         test_cases = json.load(test_cases_file)
         test_cases_file.close()
