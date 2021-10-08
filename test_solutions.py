@@ -7,6 +7,7 @@ import global_vars
 class TestSolutions(unittest.TestCase):
 
     def read_test_cases(self, problem_dir):
+        print(f'read test cases')
         path = f'{global_vars.PROJECT_PATH}/{problem_dir}/test_cases.json'
         test_cases_file = open(path)
         test_cases = json.load(test_cases_file)

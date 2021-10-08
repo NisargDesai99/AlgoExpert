@@ -12,3 +12,4 @@ def non_constructible_change(coins):
         curr_sum += item
     return curr_sum + 1
 
+print('testing vs code run')
