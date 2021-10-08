@@ -35,8 +35,8 @@ def tournament_winner(competitions, results):
 
 if __name__ == '__main__':
 
-    test_cases_path = os.path.expanduser('~/Documents/Practice/AlgoExpert/TournamentWinner/inputs.json')
-    # file_path = f'{PROJECT_PATH}/TournamentWinner/inputs.json'
+    test_cases_path = os.path.expanduser('~/Documents/Practice/AlgoExpert/TournamentWinner/test_cases.json')
+    # file_path = f'{PROJECT_PATH}/TournamentWinner/test_cases.json'
 
     test_cases = json.load(open(test_cases_path))
     cases_passed = True
