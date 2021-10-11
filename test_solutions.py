@@ -91,3 +91,19 @@ class TestSolutions(unittest.TestCase):
         assert all_cases_passed
 
 
+    def test_closest_value_bst(self):
+        print('\n-----Closest Value BST-----')
+        from ClosestValueBST import main
+        test_cases = self.read_test_cases('ClosestValueBST')
+
+        all_cases_passed = True
+        for test_case in test_cases:
+            result = main.closest_value_bst()
+
+            all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+            print(f'Competitions: {test_case["input"]["competitions"]}; Results: {test_case["input"]["results"]}\n\t'
+                  f'Winner: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
+
+        print('-----Tournament Winner-----\n')
+        assert all_cases_passed
+
