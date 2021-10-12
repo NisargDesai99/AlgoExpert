@@ -95,6 +95,8 @@ class TestSolutions(unittest.TestCase):
         print('\n-----Closest Value BST-----')
         from ClosestValueBST import main
         test_cases = self.read_test_cases('ClosestValueBST')
+        # TEST CASES BST INPUTS IN PRE-ORDER
+        # TODO: create BST with pre-order traversal
 
         all_cases_passed = True
         for test_case in test_cases:
