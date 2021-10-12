@@ -1,24 +1,24 @@
 [
-    {
-        "input": {
-            "competitions": [
-                ["HTML", "C#"],
-                ["C#", "Python"],
-                ["Python", "HTML"]
-            ],
-            "results": [0, 0, 1]
-        },
-        "expected_output": "Python"
-    },
-    {
-        "input": {
-            "competitions": [
-                ["HTML", "Java"],
-                ["Java", "Python"],
-                ["Python", "HTML"]
-            ],
-            "results": [0, 1, 1]
-        },
-        "expected_output": "Java"
-    }
+	{
+		"input": {
+			"competitions": [
+				["HTML", "C#"],
+				["C#", "Python"],
+				["Python", "HTML"]
+			],
+			"results": [0, 0, 1]
+		},
+		"expected_output": "Python"
+	},
+	{
+		"input": {
+			"competitions": [
+				["HTML", "Java"],
+				["Java", "Python"],
+				["Python", "HTML"]
+			],
+			"results": [0, 1, 1]
+		},
+		"expected_output": "Java"
+	}
 ]

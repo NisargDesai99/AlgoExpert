@@ -1,4 +1,3 @@
-
 def print_tree(tree):
 	print(f'{tree.value}', end=' ')
 	if tree.left is not None:
@@ -14,14 +13,14 @@ def closest_value_bst(tree, target):
 	while current_node is not None:
 		if abs(target - current_node.value) < abs(target - closest_value):
 			closest_value = current_node.value
-		
+
 		if target < current_node.value:
 			current_node = current_node.left
 		elif target > current_node.value:
 			current_node = current_node.right
 		else:
 			break
-	
+
 	return closest_value
 
 
@@ -30,5 +29,3 @@ class BST:
 		self.value = value
 		self.left = None
 		self.right = None
-
-

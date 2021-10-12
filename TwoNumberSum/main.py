@@ -1,27 +1,25 @@
-
-
 def two_number_sum(target_sum: int, arr=[]):
-    arr.sort()
-    left, right = 0, len(arr) - 1
-    while left < right:
-        curr_sum = arr[left] + arr[right]
-        if curr_sum == target_sum:
-            return [arr[left], arr[right]]
-        elif curr_sum < target_sum:
-            left += 1
-        elif curr_sum > target_sum:
-            right -= 1
-    return []
+	arr.sort()
+	left, right = 0, len(arr) - 1
+	while left < right:
+		curr_sum = arr[left] + arr[right]
+		if curr_sum == target_sum:
+			return [arr[left], arr[right]]
+		elif curr_sum < target_sum:
+			left += 1
+		elif curr_sum > target_sum:
+			right -= 1
+	return []
 
 
 if __name__ == '__main__':
-    print('Two Number Sum')
+	print('Two Number Sum')
 
-    input_arr = [int(item) for item in input('Enter the list: ').split()]
-    target_sum = int(input('Enter target sum: '))
+	input_arr = [int(item) for item in input('Enter the list: ').split()]
+	target_sum = int(input('Enter target sum: '))
 
-    result = two_number_sum(target_sum, input_arr)
-    print(f'Result: {result}')
+	result = two_number_sum(target_sum, input_arr)
+	print(f'Result: {result}')
 
 
 # Test input:
