@@ -1,15 +1,9 @@
-def print_tree(tree):
-	print(f'{tree.value}', end=' ')
-	if tree.left is not None:
-		print_tree(tree.left)
-	if tree.right is not None:
-		print_tree(tree.right)
+from trees import *
 
-
-def closest_value_bst(tree, target):
-	print_tree(tree)
-	current_node = tree
-	closest_value = tree.value
+def closest_value_bst(tree: BST, target):
+	tree.show()
+	current_node = tree.root
+	closest_value = tree.root.value
 	while current_node is not None:
 		if abs(target - current_node.value) < abs(target - closest_value):
 			closest_value = current_node.value
@@ -23,9 +17,3 @@ def closest_value_bst(tree, target):
 
 	return closest_value
 
-
-class BST:
-	def __init__(self, value):
-		self.value = value
-		self.left = None
-		self.right = None

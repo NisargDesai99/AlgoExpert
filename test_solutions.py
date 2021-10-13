@@ -3,6 +3,7 @@ import os
 import json
 import unittest
 import global_vars
+from trees import BST
 
 class TestSolutions(unittest.TestCase):
 
@@ -100,12 +101,16 @@ class TestSolutions(unittest.TestCase):
 
 		all_cases_passed = True
 		for test_case in test_cases:
-			result = main.closest_value_bst()
+			bst = BST()
+			bst.build_from_list(test_case['input'])
+			target = test_case['target']
+
+			result = main.closest_value_bst(bst, target)
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Competitions: {test_case["input"]["competitions"]}; Results: {test_case["input"]["results"]}\n\t'
-				  f'Winner: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
+			print(f'Inputs: {test_case["input"]}; Expected Output: {test_case["expected_output"]}\n\t'
+				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
 
-		print('-----Tournament Winner-----\n')
+		print('-----Closest Value BST-----\n')
 		assert all_cases_passed
 
