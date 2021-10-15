@@ -114,3 +114,15 @@ class TestSolutions(unittest.TestCase):
 		print('-----Closest Value BST-----\n')
 		assert all_cases_passed
 
+
+	# TODO: finish tests
+	def test_branch_sum(self):
+		print('\n-----Branch Sums-----')
+		from BranchSums import main
+		test_cases = self.read_test_cases('BranchSums')
+
+		for test_case in test_cases:
+			continue
+
+		print('-----Branch Sums-----\n')
+
