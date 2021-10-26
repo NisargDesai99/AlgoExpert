@@ -125,4 +125,21 @@ class TestSolutions(unittest.TestCase):
 			continue
 
 		print('-----Branch Sums-----\n')
+	
+
+	# TODO: finish tests for BST
+	# def test_bst_insert()
+	# def test_bst_remove()
+	# def test_bst_contains()
+
+	def test_validate_bst(self):
+		print(f'\n-----Validate BST-----')
+		from ValidateBST import main
+		test_cases = self.read_test_cases('ValidateBST')
+
+		for test_case in test_cases:
+			continue
+
+		print('-----Branch Sums-----\n')
+
 

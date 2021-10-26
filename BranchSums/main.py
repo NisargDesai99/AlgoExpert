@@ -1,6 +1,3 @@
-from trees import *
-
-
 # Binary tree Implementation from AlgoExpert
 # This implentation does not take into account the relation of the values being inserted into the tree
 # so parent: 1; left: 2; right: 3 is possible.
@@ -54,15 +51,16 @@ def branch_sums_iterative(tree):
     stack.append(tree)
 
     sums = []
-    sum = 0
+    curr_sum = 0
 
     while stack:
         curr_node = stack.pop()
-        sum += curr_node.value
+        curr_sum += curr_node.value
+        print(f'curr_node: {curr_node.value}; sum: {curr_sum}')
 
         if curr_node.left is None and curr_node.right is None:
-            print(f'adding sum: {sum}')
-            sums.append(sum)
+            print(f'\nadding sum: {curr_sum}\n')
+            sums.append(curr_sum)
 
         if curr_node.right is not None:
             stack.append(curr_node.right)
@@ -71,4 +69,34 @@ def branch_sums_iterative(tree):
 
     print(f'sums: {sums}')
 
+
+def show_preorder(tree: BinaryTree):
+    if tree is None:
+        return
+    print(tree.value, end=' ')
+    show_preorder(tree.left)
+    show_preorder(tree.right)
+
+
+def show_inorder(tree: BinaryTree):
+    if tree is None:
+        return
+    show_inorder(tree.left)
+    print(tree.value, end=' ')
+    show_inorder(tree.right)
+
+
+values = [5, 2, 5, 1, 6, 15, 13, 17, 16]
+binary_tree = BinaryTree(10)
+binary_tree.insert(values)
+
+print(len(values) + 1)
+print(f'preorder:', end=' ')
+show_preorder(binary_tree)
+print()
+print(f'inorder:', end=' ')
+show_inorder(binary_tree)
+print()
+
+branch_sums_iterative(binary_tree)
 
