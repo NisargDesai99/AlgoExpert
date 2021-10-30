@@ -1,4 +1,3 @@
-
 import os
 import json
 import unittest
@@ -34,8 +33,8 @@ class TestSolutions(unittest.TestCase):
 				  f'Result: {result_change}; {"Passed" if result_change == test_case["expected_output"] else "Failed"}')
 			counter += 1
 
-		print('-----Non-ConstructibleChange-----\n')
 		assert all_cases_passed
+		print('-----Non-ConstructibleChange-----\n')
 
 
 	def test_validate_subsequence(self):
@@ -52,8 +51,8 @@ class TestSolutions(unittest.TestCase):
 				  f'{"Passed" if test_case["expected_output"] == is_subsequence else "Failed"}')
 			all_cases_passed = all_cases_passed and (test_case['expected_output'] == is_subsequence)
 
-		print('-----Validate Subsequence-----\n')
 		assert all_cases_passed
+		print('-----Validate Subsequence-----\n')
 
 
 	def test_sorted_squared_array(self):
@@ -70,8 +69,8 @@ class TestSolutions(unittest.TestCase):
 			print(f'Input Array: {test_case["array"]};\n\t'
 				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
 
-		print('-----Sorted Squared Array-----\n')
 		assert all_cases_passed
+		print('-----Sorted Squared Array-----\n')
 
 
 	def test_tournament_winner(self):
@@ -88,8 +87,8 @@ class TestSolutions(unittest.TestCase):
 			print(f'Competitions: {test_case["input"]["competitions"]}; Results: {test_case["input"]["results"]}\n\t'
 				  f'Winner: {winner}; {"Passed" if test_case["expected_output"] == winner else "Failed"}')
 
-		print('-----Tournament Winner-----\n')
 		assert all_cases_passed
+		print('-----Tournament Winner-----\n')
 
 
 	def test_closest_value_bst(self):
@@ -111,8 +110,8 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]}; Expected Output: {test_case["expected_output"]}\n\t'
 				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
 
-		print('-----Closest Value BST-----\n')
 		assert all_cases_passed
+		print('-----Closest Value BST-----\n')
 
 
 	# TODO: finish tests
