@@ -3,7 +3,7 @@ import os
 import json
 import unittest
 import global_vars
-from trees import BST
+# from trees import BinarySearchTree
 
 class TestSolutions(unittest.TestCase):
 
@@ -93,25 +93,25 @@ class TestSolutions(unittest.TestCase):
 
 
 	def test_closest_value_bst(self):
-		print('\n-----Closest Value BST-----')
+		print('\n-----Closest Value BinarySearchTree-----')
 		from ClosestValueBST import main
-		test_cases = self.read_test_cases('ClosestValueBST')
-		# TEST CASES BST INPUTS IN PRE-ORDER
-		# TODO: create BST with pre-order traversal
+		test_cases = self.read_test_cases('ClosestValueBinarySearchTree')
+		# TEST CASES BinarySearchTree INPUTS IN PRE-ORDER
+		# TODO: create BinarySearchTree with pre-order traversal
 
 		all_cases_passed = True
 		for test_case in test_cases:
-			bst = BST()
-			bst.build_from_list(test_case['input'])
+			BinarySearchTree = BinarySearchTree()
+			BinarySearchTree.build_from_list(test_case['input'])
 			target = test_case['target']
 
-			result = main.closest_value_bst(bst, target)
+			result = main.closest_value_bst(BinarySearchTree, target)
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
 			print(f'Inputs: {test_case["input"]}; Expected Output: {test_case["expected_output"]}\n\t'
 				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
 
-		print('-----Closest Value BST-----\n')
+		print('-----Closest Value BinarySearchTree-----\n')
 		assert all_cases_passed
 
 
@@ -127,10 +127,10 @@ class TestSolutions(unittest.TestCase):
 		print('-----Branch Sums-----\n')
 	
 
-	# TODO: finish tests for BST
-	# def test_bst_insert()
-	# def test_bst_remove()
-	# def test_bst_contains()
+	# TODO: finish tests for BinarySearchTree
+	# def test_BinarySearchTree_insert()
+	# def test_BinarySearchTree_remove()
+	# def test_BinarySearchTree_contains()
 
 	def test_validate_bst(self):
 		print(f'\n-----Validate BST-----')
@@ -143,3 +143,18 @@ class TestSolutions(unittest.TestCase):
 		print('-----Branch Sums-----\n')
 
 
+	def test_remove_islands(self):
+		print(f'\n-----Remove Islands-----')
+		from RemoveIslands import main
+		test_cases = self.read_test_cases('RemoveIslands')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.remove_islands(test_case['input'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]}; Expected Output: {test_case["expected_output"]}\n\t'
+				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
+
+		print('-----Remove Islands-----\n')
+		assert all_cases_passed

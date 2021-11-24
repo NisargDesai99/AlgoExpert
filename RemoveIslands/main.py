@@ -16,19 +16,17 @@ def get_neighbors(matrix, row, col):
 
 	if row - 1 >= 0:
 		neighbors.append((row - 1, col))
-	if row + 1 < num_cols:
+	if row + 1 < num_rows:
 		neighbors.append((row + 1, col))
 	if col - 1 >= 0:
 		neighbors.append((row, col - 1))
-	if col + 1 < num_rows:
+	if col + 1 < num_cols:
 		neighbors.append((row, col + 1))
 
 	return neighbors
 
 
 def update_connected_ones(curr_row, curr_col, matrix):
-	print(f'update_connected_ones({curr_row}, {curr_col}, matrix)')
-
 	stack = deque()
 	stack.append((curr_row, curr_col))
 
@@ -37,7 +35,6 @@ def update_connected_ones(curr_row, curr_col, matrix):
 		matrix[row][col] = 2
 
 		neighbors = get_neighbors(matrix, row, col)
-		print(f'{row}, {col}: neighbors: {neighbors}')
 
 		for neighbor in neighbors:
 			n_row, n_col = neighbor
@@ -55,7 +52,6 @@ def remove_islands(matrix):
 
 	width = len(matrix[0])
 	height = len(matrix)
-	print(f'{width} x {height}')
 
 	for curr_row in range(height):
 		for curr_col in range(width):
@@ -66,8 +62,6 @@ def remove_islands(matrix):
 
 			update_connected_ones(curr_row, curr_col, matrix)
 
-	print('udpated')
-	print(''.join([str(row) + '\n' for row in matrix]))
 	for curr_row in range(height):
 		for curr_col in range(width):
 			if matrix[curr_row][curr_col] == 1:
@@ -86,6 +80,12 @@ matrix = [
 	[1, 0, 1, 1, 0, 0],
 	[1, 0, 0, 0, 0, 1],
 ]
+
+# matrix = [
+# 	[1, 0, 0, 1, 0],
+#     [0, 1, 0, 1, 0],
+#     [0, 0, 1, 1, 0]
+# ]
 
 
 print('input')
