@@ -1,8 +1,9 @@
+
 import os
 import json
 import unittest
 import global_vars
-from trees import BST
+# from trees import BinarySearchTree
 
 class TestSolutions(unittest.TestCase):
 
@@ -33,8 +34,8 @@ class TestSolutions(unittest.TestCase):
 				  f'Result: {result_change}; {"Passed" if result_change == test_case["expected_output"] else "Failed"}')
 			counter += 1
 
-		assert all_cases_passed
 		print('-----Non-ConstructibleChange-----\n')
+		assert all_cases_passed
 
 
 	def test_validate_subsequence(self):
@@ -51,8 +52,8 @@ class TestSolutions(unittest.TestCase):
 				  f'{"Passed" if test_case["expected_output"] == is_subsequence else "Failed"}')
 			all_cases_passed = all_cases_passed and (test_case['expected_output'] == is_subsequence)
 
-		assert all_cases_passed
 		print('-----Validate Subsequence-----\n')
+		assert all_cases_passed
 
 
 	def test_sorted_squared_array(self):
@@ -69,8 +70,8 @@ class TestSolutions(unittest.TestCase):
 			print(f'Input Array: {test_case["array"]};\n\t'
 				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
 
-		assert all_cases_passed
 		print('-----Sorted Squared Array-----\n')
+		assert all_cases_passed
 
 
 	def test_tournament_winner(self):
@@ -87,8 +88,8 @@ class TestSolutions(unittest.TestCase):
 			print(f'Competitions: {test_case["input"]["competitions"]}; Results: {test_case["input"]["results"]}\n\t'
 				  f'Winner: {winner}; {"Passed" if test_case["expected_output"] == winner else "Failed"}')
 
-		assert all_cases_passed
 		print('-----Tournament Winner-----\n')
+		assert all_cases_passed
 
 
 	def test_closest_value_bst(self):
@@ -100,7 +101,7 @@ class TestSolutions(unittest.TestCase):
 
 		all_cases_passed = True
 		for test_case in test_cases:
-			bst = BST()
+			bst = BinarySearchTree()
 			bst.build_from_list(test_case['input'])
 			target = test_case['target']
 
@@ -110,8 +111,8 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]}; Expected Output: {test_case["expected_output"]}\n\t'
 				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
 
-		assert all_cases_passed
 		print('-----Closest Value BST-----\n')
+		assert all_cases_passed
 
 
 	# TODO: finish tests
@@ -142,3 +143,18 @@ class TestSolutions(unittest.TestCase):
 		print('-----Branch Sums-----\n')
 
 
+	def test_remove_islands(self):
+		print(f'\n-----Remove Islands-----')
+		from RemoveIslands import main
+		test_cases = self.read_test_cases('RemoveIslands')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.remove_islands(test_case['input'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]}; Expected Output: {test_case["expected_output"]}\n\t'
+				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
+
+		print('-----Remove Islands-----\n')
+		assert all_cases_passed
