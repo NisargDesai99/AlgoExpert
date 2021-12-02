@@ -1,12 +1,41 @@
 
 
+def is_valid_ip_component(s):
+	s_as_int = int(s)
+	if s_as_int > 255 or s_as_int < 0:
+		return False
+
+	return len(s) == len(str(s_as_int))
+
 
 def validIPAddresses(string):
 
-	if len(string) <= 3:
-		return []
-
 	addresses = []
+
+	counter = 0
+	for first in range(1, min(len(string), 4)):
+		first_part = string[0:first]
+		if not is_valid_ip_component(first_part):
+			continue
+
+		for second in range(first+1, first + min(len(string) - first, 4)):
+			second_part = string[first:second]
+			if not is_valid_ip_component(second_part):
+				continue
+
+			for third in range(second+1, second + min(len(string) - second, 4)):
+				third_string = string[second:third]
+				fourth_string = string[third:]
+				ip_address = ''
+
+				if is_valid_ip_component(third_string) and is_valid_ip_component(fourth_string):
+					ip_address = string[0:first] + '.' + string[first:second] + '.' + string[second:third] + '.' + string[third:]
+					addresses.append(ip_address)
+
+				print(f'{counter}:: {first}; {second}; {third} -- {ip_address}')
+
+				counter += 1
+
 	return addresses
 
 
