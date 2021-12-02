@@ -3,7 +3,7 @@ import os
 import json
 import unittest
 import global_vars
-# from trees import BinarySearchTree
+from trees import BinarySearchTree
 
 class TestSolutions(unittest.TestCase):
 
