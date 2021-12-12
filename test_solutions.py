@@ -3,7 +3,7 @@ import os
 import json
 import unittest
 import global_vars
-from trees import BinarySearchTree
+# from trees import BinarySearchTree
 
 class TestSolutions(unittest.TestCase):
 
@@ -158,3 +158,21 @@ class TestSolutions(unittest.TestCase):
 
 		print('-----Remove Islands-----\n')
 		assert all_cases_passed
+
+
+	def test_reverse_words_in_string(self):
+		print(f'\n-----Reverse Words In String-----')
+		from ReverseWordsInString import main
+		test_cases = self.read_test_cases('ReverseWordsInString')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.reverse_words_in_string(test_case['input'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]}; Expected Output: {test_case["expected_output"]}\n\t'
+				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
+
+		print('-----Reverse Words In String-----\n')
+		assert all_cases_passed
+

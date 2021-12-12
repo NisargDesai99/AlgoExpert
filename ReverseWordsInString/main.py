@@ -21,11 +21,3 @@ def reverse_words_in_string(s):
 
 	return f'{reversed_s}{s[curr_word_start_idx:curr_word_end_idx]}'
 
-
-s = 'tim is great'
-result = reverse_words_in_string(s)
-print(f'{s}: {result}')
-
-s2 = 'whitespaces    4'
-result2 = reverse_words_in_string(s2)
-print(f'{s2}: {result2}')

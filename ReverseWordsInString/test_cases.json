@@ -1,0 +1,10 @@
+[
+	{
+		"input": "tim is great",
+		"expected_output": "great is tim"
+	},
+	{
+		"input": "whitespaces    4",
+		"expected_output": "4    whitespaces"
+	}
+]
