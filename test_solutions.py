@@ -135,14 +135,15 @@ class TestSolutions(unittest.TestCase):
 	# def test_bst_contains()
 
 	def test_validate_bst(self):
-		print(f'\n-----Validate BST-----')
-		from ValidateBST import main
-		test_cases = self.read_test_cases('ValidateBST')
+		# print(f'\n-----Validate BST-----')
+		# from ValidateBST import main
+		# test_cases = self.read_test_cases('ValidateBST')
 
-		for test_case in test_cases:
-			continue
+		# for test_case in test_cases:
+		# 	continue
 
-		print('-----Branch Sums-----\n')
+		# print('-----Validate BST-----\n')
+		pass
 
 
 	def test_remove_islands(self):
@@ -196,5 +197,19 @@ class TestSolutions(unittest.TestCase):
 		assert all_cases_passed
 
 
+	def test_number_of_ways_to_make_change(self):
+		print(f'\n-----Number Of Ways To Make Change-----')
+		from NumberOfWaysToMakeChange import main
+		test_cases = self.read_test_cases('NumberOfWaysToMakeChange')
 
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.number_of_ways_to_make_change(test_case['input'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]}; Expected Output: {test_case["expected_output"]}\n\t'
+				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
+
+		print('-----Number Of Ways To Make Change-----\n')
+		assert all_cases_passed
 
