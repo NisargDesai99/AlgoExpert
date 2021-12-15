@@ -12,5 +12,5 @@
    3. Once done a file with the following name will be generated: `python_utils-1.0.1-py2.py3-none-any.whl`
    4. Copy that file to the root of the AlgoExpert repo
    5. Run `pip install python_utils-1.0.1-py2.py3-none-any.whl`
-4. Add `PROJECT_PATH` as an environment variable and set it to `<path to repo/AlgoExpert`
+4. Add `ALGO_EXPERT_PROJECT_PATH` as an environment variable and set it to `<path to repo/AlgoExpert`
 5. Run test_solutions.py
