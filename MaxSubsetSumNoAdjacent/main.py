@@ -1,35 +1,39 @@
+# dynamic programming
+
+# O(n) time - iterating over input array
+# O(n) space - from max_sums array
+def max_subset_sum_no_adjacent_On_space(array):
+	if len(array) == 0:
+		return 0
+	if len(array) == 1:
+		return array[0]
+
+	# copy the given array to max sums to initialize it
+	# set max_sums[1] to the max of 0 and 1 indices
+	max_sums = array[:]
+	max_sums[1] = max(array[0], array[1])
+
+	for i in range(2, len(array)):
+		max_sums[i] = max(max_sums[i-1], max_sums[i-2] + array[i])
+		print(f'i = {i}; max_sums = {max_sums}')
+
+	return max_sums[-1]
 
 
+# O(n) time - iterating over input array
+# O(1) space - only track two variables since we only need i-1 and i-2 max sums
 def max_subset_sum_no_adjacent(array):
-	
-	max_sum = -1
-	curr_sum = 0
+	if len(array) == 0:
+		return 0
+	if len(array) == 1:
+		return array[0]
 
-	for i in range(0, len(array), 2):
-		i+=1
-		print(f'array[{i}] = {array[i]}')
-		if i == 0:
-			curr_sum = array[i]
-			print(f'idx 0 - curr_sum = {curr_sum}')
-			continue
+	second = array[0]					# the i-2 value
+	first = max(array[0], array[1])		# the i-1 value
 
-		if i+1 < len(array) and array[i] < array[i+1]:
-			print(f'next num larger... continuing')
-			continue
+	for i in range(2, len(array)):
+		current_max = max(first, second + array[i])
+		second = first			# move "pointers" forward
+		first = current_max
 
-		curr_sum += array[i]
-		print(f'adding {array[i]} - new curr_sum = {curr_sum}')
-
-	return curr_sum
-		
-
-
-
-arr = [75, 105, 120, 75, 90, 135]
-print(f'input: {arr}')
-print(f'result: {max_subset_sum_no_adjacent(arr)}', end='\n\n')
-
-arr2 = [135, 90, 75, 120, 105, 75]
-print(f'input: {arr2}')
-print(f'result: {max_subset_sum_no_adjacent(arr2)}', end='\n\n')
-
+	return first

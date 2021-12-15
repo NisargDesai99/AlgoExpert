@@ -1,0 +1,30 @@
+[
+	{
+		"input": [75, 105, 120, 75, 90, 135],
+		"expected_output": 330
+	},
+	{
+		"input": [135, 90, 75, 120, 105, 75],
+		"expected_output": 330
+	},
+	{
+		"input": [],
+		"expected_output": 0
+	},
+	{
+		"input": [100],
+		"expected_output": 100
+	},
+	{
+		"input": [10, 5, 20, 25, 15, 5, 5, 15],
+		"expected_output": 60
+	},
+	{
+		"input": [10, 5, 20, 25, 15, 5, 5, 15, 3, 15, 5, 5, 15],
+		"expected_output": 90
+	},
+	{
+		"input": [125, 210, 250, 120, 150, 300],
+		"expected_output": 675
+	}
+]
