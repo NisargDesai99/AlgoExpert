@@ -81,12 +81,6 @@ matrix = [
 	[1, 0, 0, 0, 0, 1],
 ]
 
-# matrix = [
-# 	[1, 0, 0, 1, 0],
-#     [0, 1, 0, 1, 0],
-#     [0, 0, 1, 1, 0]
-# ]
-
 
 print('input')
 print(''.join([str(row) + '\n' for row in matrix]))
