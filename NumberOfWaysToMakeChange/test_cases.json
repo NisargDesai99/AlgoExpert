@@ -1,0 +1,37 @@
+[
+	{
+		"input": {
+			"n": 5,
+			"denoms": [1, 2, 5]
+		},
+		"expected_output": 4
+	},
+	{
+		"input": {
+			"n": 6,
+  			"denoms": [1, 5]
+		},
+		"expected_output": 2
+	},
+	{
+		"input": {
+			"n": 0,
+			"denoms": [2, 3, 4, 7]
+		},
+		"expected_output": 1
+	},
+	{
+		"input": {
+			"n": 9,
+			"denoms": [5]
+		},
+		"expected_output": 0
+	},
+	{
+		"input": {
+			"n": 25,
+			"denoms": [1, 5, 10, 25]
+		},
+		"expected_output": 13
+	}
+]

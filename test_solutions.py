@@ -204,7 +204,7 @@ class TestSolutions(unittest.TestCase):
 
 		all_cases_passed = True
 		for test_case in test_cases:
-			result = main.number_of_ways_to_make_change(test_case['input'])
+			result = main.num_ways_memoization(test_case['input']['n'], test_case['input']['denoms'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
 			print(f'Inputs: {test_case["input"]}; Expected Output: {test_case["expected_output"]}\n\t'

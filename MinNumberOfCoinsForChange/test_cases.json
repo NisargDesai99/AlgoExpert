@@ -1,0 +1,65 @@
+[
+	{
+		"input": {
+			"n": 7,
+			"denoms": [1, 5, 10]
+		},
+		"expected_output": 3
+	},
+	{
+		"input": {
+			"n": 7,
+			"denoms": [1, 10, 5]
+		},
+		"expected_output": 3
+	},
+	{
+		"input": {
+			"n": 7,
+			"denoms": [10, 1, 5]
+		},
+		"expected_output": 3
+	},
+	{
+		"input": {
+			"n": 0,
+			"denoms": [1, 2, 3]
+		},
+		"expected_output": 0
+	},
+	{
+		"input": {
+			"n": 3,
+			"denoms": [2, 1]
+		},
+		"expected_output": 2
+	},
+	{
+		"input": {
+			"n": 10,
+			"denoms": [1, 5, 10]
+		},
+		"expected_output": 1
+	},
+	{
+		"input": {
+			"n": 11,
+			"denoms": [1, 5, 10]
+		},
+		"expected_output": 2
+	},
+	{
+		"input": {
+			"n": 24,
+			"denoms": [1, 5, 10]
+		},
+		"expected_output": 6
+	},
+	{
+		"input": {
+			"n": 135,
+			"denoms": [39, 45, 130, 40, 4, 1, 60, 75]
+		},
+		"expected_output": 2
+	}
+]
