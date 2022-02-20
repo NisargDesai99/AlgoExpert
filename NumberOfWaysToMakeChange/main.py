@@ -1,6 +1,3 @@
-import json
-
-
 def number_of_ways_to_make_change(n, denoms, curr_ways=0):
 	if n < 0:
 		return 0
@@ -22,3 +19,11 @@ def num_ways_memoization(n, denoms):
 				continue
 			ways[amount] += ways[amount - denom]
 	return ways[-1]
+
+# import json
+# test_cases = json.load(open('./test_cases.json'))
+# for test in test_cases:
+# 	min_coins = num_ways_memoization(test['input']['n'], test['input']['denoms'])
+# 	print(f'min_coins = {min_coins}')
+# 	if min_coins == test['expected_output']:
+# 		print(f'\tPassed')

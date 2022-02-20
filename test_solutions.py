@@ -213,3 +213,20 @@ class TestSolutions(unittest.TestCase):
 		print('-----Number Of Ways To Make Change-----\n')
 		assert all_cases_passed
 
+
+	def test_min_num_coins_for_change(self):
+		print(f'\n-----Min Number Of Coins For Change-----')
+		from MinNumberOfCoinsForChange import main
+		test_cases = self.read_test_cases('MinNumberOfCoinsForChange')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.min_num_coins_change_memoization(test_case['input']['n'], test_case['input']['denoms'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]}; Expected Output: {test_case["expected_output"]}\n\t'
+				  f'Result: {result}; {"Passed" if test_case["expected_output"] == result else "Failed"}')
+
+		print('-----Min Number Of Coins For Change-----\n')
+		assert all_cases_passed
+
