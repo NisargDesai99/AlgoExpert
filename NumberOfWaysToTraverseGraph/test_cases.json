@@ -1,0 +1,30 @@
+[
+	{
+		"input": {
+			"width": 4,
+			"height": 3
+		},
+		"expected_output": 10
+	},
+	{
+		"input": {
+			"width": 3,
+			"height": 2
+		},
+		"expected_output": 3
+	},
+	{
+		"input": {
+			"width": 2,
+			"height": 3
+		},
+		"expected_output": 3
+	},
+	{
+		"input": {
+			"width": 5,
+			"height": 5
+		},
+		"expected_output": 70
+	}
+]

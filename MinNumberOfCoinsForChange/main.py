@@ -34,7 +34,7 @@ def min_num_coins_change_memoization(n, denoms):
 			if curr_count != sys.maxsize and curr_count < table[i]:
 				table[i] = curr_count
 
-	return table[n]
+	return -1 if table[n] == sys.maxsize else table[n]
 
 # import json
 # test_cases = json.load(open('./test_cases.json'))
