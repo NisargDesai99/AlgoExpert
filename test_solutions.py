@@ -13,6 +13,7 @@ class Colors:
 	OKGREEN = '\033[92m'
 	WARNING = '\033[93m'
 	FAIL = '\033[91m'
+	WHITE = '\033[37m'
 	ENDC = '\033[0m'
 	BOLD = '\033[1m'
 	UNDERLINE = '\033[4m'
@@ -44,7 +45,7 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]};\n\t'
 				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
 				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}')
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
 			counter += 1
 
 		print('-----Non-ConstructibleChange-----\n')
@@ -84,7 +85,7 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]};\n\t'
 				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
 				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}')
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
 
 		print('-----Sorted Squared Array-----\n')
 		assert all_cases_passed
@@ -104,7 +105,7 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]};\n\t'
 				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
 				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}')
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
 
 		print('-----Tournament Winner-----\n')
 		assert all_cases_passed
@@ -177,7 +178,7 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]};\n\t'
 				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
 				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}')
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
 
 		print('-----Remove Islands-----\n')
 		assert all_cases_passed
@@ -196,7 +197,7 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]};\n\t'
 				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
 				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}')
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
 
 		print('-----Reverse Words In String-----\n')
 		assert all_cases_passed
@@ -215,7 +216,7 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]};\n\t'
 				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
 				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}')
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
 
 		print('-----Max Subset Sum No Adjacent-----\n')
 		assert all_cases_passed
@@ -234,7 +235,7 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]};\n\t'
 				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
 				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}')
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
 
 		print('-----Number Of Ways To Make Change-----\n')
 		assert all_cases_passed
@@ -253,7 +254,7 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]};\n\t'
 				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
 				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}')
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
 
 		print('-----Min Number Of Coins For Change-----\n')
 		assert all_cases_passed
@@ -272,7 +273,7 @@ class TestSolutions(unittest.TestCase):
 			print(f'Inputs: {test_case["input"]};\n\t'
 				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
 				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}')
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
 
 		print('-----Number Of Ways To Traverse Graph-----\n')
 		assert all_cases_passed
