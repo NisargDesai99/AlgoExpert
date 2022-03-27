@@ -1,6 +1,19 @@
 
 def knapsack_problem(items, capacity):
-	# print(f'{items} | {capacity}')
+
+	counter = 0
+	for item in items:
+		knapsack_problem_helper(items, capacity, item, curr_item_idx=counter)
+
+def knapsack_problem_helper(items, capacity, curr_item=[], curr_item_idx=0, curr_weight=0):
+	if curr_item_idx == 0:
+
+
+	if curr_weight == capacity:
+		return curr_weight, curr_item_idx
+
+
+
 	return
 
 
