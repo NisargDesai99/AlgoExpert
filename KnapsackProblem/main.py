@@ -1,10 +1,7 @@
-import time
 
 
 def knapsack_problem(items, capacity):
-	start_time = time.time()
 	res = knapsack_problem_helper(items, capacity, len(items)-1)
-	print(f'exec time: {time.time() - start_time}')
 	return [res[0], res[1]]
 
 
@@ -28,7 +25,7 @@ def knapsack_problem_helper(items, capacity, idx):
 print(f'\n\n')
 import json
 test_cases = json.load(open('test_cases.json'))
-test_case = test_cases[0]
-print(knapsack_problem(test_case['inputs']['items'], test_case['inputs']['capacity']))
-# for test_case in test_cases:
-# 	print(knapsack_problem(test_case['inputs']['items'], test_case['inputs']['capacity']))
+# test_case = test_cases[0]
+# print(knapsack_problem(test_case['inputs']['items'], test_case['inputs']['capacity']))
+for test_case in test_cases:
+	print(knapsack_problem(test_case['inputs']['items'], test_case['inputs']['capacity']))
