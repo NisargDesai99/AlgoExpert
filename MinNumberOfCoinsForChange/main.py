@@ -18,6 +18,7 @@ def min_num_coins_change_recursive(n, denoms):
 	return -1 if min_count == sys.maxsize else min_count
 
 
+# this is actually not memoization, its top-down tabulation
 def min_num_coins_change_memoization(n, denoms):
 	if n == 0:
 		return 0
