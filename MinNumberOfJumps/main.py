@@ -2,8 +2,10 @@ import sys
 
 
 def min_number_of_jumps(array):
-	memo = [-1] * len(array)
-	return min_number_of_jumps_memoization(array, len(array), memo)
+	n = len(array)
+	# memo = [-1] * n
+	# return min_number_of_jumps_memoization(array, n, memo)
+	return min_number_of_jumps_tabulation(array, n)
 
 
 def min_number_of_jumps_recursive(array, n, idx=0):
@@ -38,22 +40,22 @@ def min_number_of_jumps_memoization(array, n, memo, idx=0):
 
 
 def min_number_of_jumps_tabulation(array, n):
-	jumps = []
+	jumps = [0 if itr == 0 else sys.maxsize for itr in range(n)]
+	for i in range(n):
+		for j in range(i+1, i+array[i]+1):
+			if j >= n:
+				continue
+			jumps[j] = min(1 + jumps[i], jumps[j])
+	return jumps[n-1]
 
 
 
-print(f'\n\n')
-import json
-test_cases = json.load(open('test_cases.json'))
-counter = 0
-for test_case in test_cases:
-	if counter != 0:
-		continue
-
-	print(test_case['input'])
-	output = min_number_of_jumps(test_case['input'])
-	print(f'\t{output}')
-	if output == test_case['expected_output']:
-		print(f'\tPassed')
-
-	counter += 1
+# print(f'\n\n')
+# import json
+# test_cases = json.load(open('test_cases.json'))
+# for test_case in test_cases:
+# 	print(test_case['input'])
+# 	output = min_number_of_jumps(test_case['input'])
+# 	print(f'\t{output}')
+# 	if output == test_case['expected_output']:
+# 		print(f'\tPassed')
