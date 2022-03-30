@@ -64,8 +64,6 @@ print(f'\n\n')
 import json
 test_cases = json.load(open('test_cases.json'))
 for test_case in test_cases:
-	if test_case['expected_output'] != [10, [1, 3]]:
-		continue
 	print(test_case['input'])
 	output = knapsack_problem(test_case['input']['items'], test_case['input']['capacity'])
 	print(f'\t{output}')
