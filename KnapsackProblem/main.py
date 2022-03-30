@@ -60,13 +60,12 @@ def knapsack_problem_iterative_tabulation(items, capacity):
 	return memo[len(items)][capacity]
 
 
-print(f'\n\n')
-import json
-test_cases = json.load(open('test_cases.json'))
-for test_case in test_cases:
-	print(test_case['input'])
-	output = knapsack_problem(test_case['input']['items'], test_case['input']['capacity'])
-	print(f'\t{output}')
-	if output == test_case['expected_output']:
-		print(f'\tPassed')
-
+# print(f'\n\n')
+# import json
+# test_cases = json.load(open('test_cases.json'))
+# for test_case in test_cases:
+# 	print(test_case['input'])
+# 	output = knapsack_problem(test_case['input']['items'], test_case['input']['capacity'])
+# 	print(f'\t{output}')
+# 	if output == test_case['expected_output']:
+# 		print(f'\tPassed')
