@@ -63,9 +63,6 @@ def knapsack_problem_iterative_tabulation(items, capacity):
 print(f'\n\n')
 import json
 test_cases = json.load(open('test_cases.json'))
-test_case = test_cases[0]
-# print(test_case['input'])
-# print(knapsack_problem(test_case['input']['items'], test_case['input']['capacity']))
 for test_case in test_cases:
 	if test_case['expected_output'] != [10, [1, 3]]:
 		continue
