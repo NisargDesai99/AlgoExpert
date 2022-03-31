@@ -303,3 +303,39 @@ class TestSolutions(unittest.TestCase):
 		print('-----Min Number Of Jumps-----\n')
 		assert all_cases_passed
 
+	def test_maximum_sum_submatrix(self):
+		print(f'\n-----Maximum Sum Submatrix-----')
+		from MaximumSumSubmatrix import main
+		test_cases = self.read_test_cases('MaximumSumSubmatrix')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.maximum_sum_submatrix(test_case['input']['matrix'], test_case['input']['size'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]};\n\t'
+				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
+				  f'{Colors.OKCYAN}Result: {result};\n\t'
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
+
+		print('-----Maximum Sum Submatrix-----\n')
+		assert all_cases_passed
+
+	def test_task_assignment(self):
+		print(f'\n-----Task Assignment-----')
+		from TaskAssignment import main
+		test_cases = self.read_test_cases('TaskAssignment')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.task_assignment(test_case['input']['k'], test_case['input']['tasks'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]};\n\t'
+				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
+				  f'{Colors.OKCYAN}Result: {result};\n\t'
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
+
+		print('-----Task Assignment-----\n')
+		assert all_cases_passed
+
