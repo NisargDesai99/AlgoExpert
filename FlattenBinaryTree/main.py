@@ -5,6 +5,35 @@ class BinaryTree:
 		self.left = left
 		self.right = right
 
+	def insert(self, values, i=0):
+		if i >= len(values):
+			return
+		queue = [self]
+		while len(queue) > 0:
+			current = queue.pop(0)
+			if current.left is None:
+				current.left = BinaryTree(values[i])
+				break
+			queue.append(current.left)
+			if current.right is None:
+				current.right = BinaryTree(values[i])
+				break
+			queue.append(current.right)
+		self.insert(values, i + 1)
+		return self
+
+	# def leftToRightToLeft(self):
+	# 	nodes = []
+	# 	current = self
+	# 	while current.right is not None:
+	# 		nodes.append(current.value)
+	# 		current = current.right
+	# 	nodes.append(current.value)
+	# 	while current is not None:
+	# 		nodes.append(current.value)
+	# 		current = current.left
+	# 	return nodes
+
 
 # space optimized solution
 def flatten_binary_tree(root):
@@ -35,3 +64,23 @@ def flatten_binary_tree_helper(root):
 def connect_nodes(left, right):
 	left.right = right
 	right.left = left
+
+
+# from collections import deque
+# def create_tree(tree):
+# 	root = tree['root']
+# 	root_node = BinaryTree(int(tree['root']))
+# 	tree_nodes = {int(tree['root']): root_node}
+
+# 	for node in tree['nodes']:
+# 		if node['value'] in tree_nodes:
+# 			if node['left'] is not None:
+# 				left_node = BinaryTree('')
+
+
+
+# import json
+# test_cases = json.load(open('test_cases.json', mode='r'))
+# for test_case in test_cases:
+# 	create_tree(test_case['input']['tree'])
+
