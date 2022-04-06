@@ -5,28 +5,69 @@ class BinaryTree:
 		self.left = left
 		self.right = right
 
-		def __repr__(self):
-			return str(self.value)
+	def insert(self, values, i=0):
+		if i >= len(values):
+			return
+		queue = [self]
+		while len(queue) > 0:
+			current = queue.pop(0)
+			if current.left is None:
+				current.left = BinaryTree(values[i])
+				break
+			queue.append(current.left)
+			if current.right is None:
+				current.right = BinaryTree(values[i])
+				break
+			queue.append(current.right)
+		self.insert(values, i + 1)
+		return self
 
-		def __str__(self):
-			return str(self.value)
+	# def leftToRightToLeft(self):
+	# 	nodes = []
+	# 	current = self
+	# 	while current.right is not None:
+	# 		nodes.append(current.value)
+	# 		current = current.right
+	# 	nodes.append(current.value)
+	# 	while current is not None:
+	# 		nodes.append(current.value)
+	# 		current = current.left
+	# 	return nodes
 
 
-def get_inorder(tree, list_tree):
-	if tree is None:
-		return []
-	get_inorder(tree.left, list_tree)
-	list_tree.append(tree)
-	get_inorder(tree.right, list_tree)
-	return list_tree
+# space optimized solution
+def flatten_binary_tree(root):
+	left, right = flatten_binary_tree_helper(root)
+	return left
 
 
-# simple solution
-def flattenBinaryTree(root):
-	inorder_list = get_inorder(root, [])
-	for idx in range(len(inorder_list)):
-		if idx <= len(inorder_list) - 2:
-			inorder_list[idx].right = inorder_list[idx+1]
-		if idx >= 1:
-			inorder_list[idx].left = inorder_list[idx-1]
-	return inorder_list[0]
+def flatten_binary_tree_helper(root):
+	if root.left is None:
+		left_most = root
+	else:
+		left_subtree_left_most, left_subtree_right_most = \
+			flatten_binary_tree_helper(root.left)
+		connect_nodes(left_subtree_right_most, root)
+		left_most = left_subtree_left_most
+
+	if root.right is None:
+		right_most = root
+	else:
+		right_subtree_left_most, right_subtree_right_most = \
+			flatten_binary_tree_helper(root.right)
+		connect_nodes(root, right_subtree_left_most)
+		right_most = right_subtree_right_most
+
+	return [left_most, right_most]
+
+
+def connect_nodes(left, right):
+	left.right = right
+	right.left = left
+
+
+# import json
+# test_cases = json.load(open('test_cases.json', mode='r'))
+# for test_case in test_cases:
+# 	create_tree(test_case['input']['tree'])
+

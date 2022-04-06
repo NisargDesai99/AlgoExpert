@@ -339,3 +339,21 @@ class TestSolutions(unittest.TestCase):
 		print('-----Task Assignment-----\n')
 		assert all_cases_passed
 
+	def test_flatten_binary_tree(self):
+		print(f'\n-----Flatten Binary Tree-----')
+		from FlattenBinaryTree import main
+		test_cases = self.read_test_cases('FlattenBinaryTree')
+
+		# TODO: can't read weird structure given by website to represent trees
+		all_cases_passed = True
+		# for test_case in test_cases:
+			# result = main.flatten_binary_tree(test_case['input'], test_case['input']['tasks'])
+
+			# all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			# print(f'Inputs: {test_case["input"]};\n\t'
+			# 	  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
+			# 	  f'{Colors.OKCYAN}Result: {result};\n\t'
+			# 	  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
+
+		print('-----Flatten Binary Tree-----\n')
+		assert all_cases_passed

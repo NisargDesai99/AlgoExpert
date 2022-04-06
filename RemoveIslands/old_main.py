@@ -68,7 +68,8 @@ def remove_islands(matrix):
 
 	while stack:
 		curr_row, curr_col = stack.pop()
-		if curr_row >=
+		if curr_row >= 1:
+			print(curr_row)
 
 		if matrix[curr_row][curr_col] == 1 and is_border((curr_row, curr_col), horiz_len=6, vert_len=6):
 			island_indices.add((curr_col, curr_row))
