@@ -357,3 +357,21 @@ class TestSolutions(unittest.TestCase):
 
 		print('-----Flatten Binary Tree-----\n')
 		assert all_cases_passed
+
+	def test_four_number_sum(self):
+		print(f'\n-----Four Number Sum-----')
+		from FourNumberSum import main
+		test_cases = self.read_test_cases('FourNumberSum')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.four_number_sum(test_case['input']['array'], test_case['input']['targetSum'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]};\n\t'
+				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
+				  f'{Colors.OKCYAN}Result: {result};\n\t'
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
+
+		print('-----Four Number Sum-----\n')
+		assert all_cases_passed
