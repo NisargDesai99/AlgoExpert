@@ -12,7 +12,7 @@ def knapsack_problem_recursive(items, capacity, idx):
 	if items[idx][1] <= capacity:
 		res_with_item = knapsack_problem_recursive(items, capacity-items[idx][1], idx-1)
 		res_with_item[0] += items[idx][0]
-		res_with_item[1].append(idx)
+		res_with_item[1].append(idx)																						# appends add O(len(arr1) + len(arr2))
 
 		res_without_item = knapsack_problem_recursive(items, capacity, idx-1)
 
@@ -33,7 +33,7 @@ def knapsack_problem_memoization(items, capacity, item_idx, memo):
 	if items[item_idx-1][1] <= capacity:
 		# added temp var to avoid editing object in memo
 		res_with_item_temp = knapsack_problem_memoization(items, capacity-items[item_idx-1][1], item_idx-1, memo)
-		res_with_item = [res_with_item_temp[0]+items[item_idx-1][0], res_with_item_temp[1] + [item_idx-1]]
+		res_with_item = [res_with_item_temp[0]+items[item_idx-1][0], res_with_item_temp[1] + [item_idx-1]]					# appends add O(len(arr1) + len(arr2))
 
 		res_without_item = knapsack_problem_memoization(items, capacity, item_idx-1, memo)
 

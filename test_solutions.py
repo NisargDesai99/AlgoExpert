@@ -358,6 +358,24 @@ class TestSolutions(unittest.TestCase):
 		print('-----Flatten Binary Tree-----\n')
 		assert all_cases_passed
 
+	def test_longest_common_subsequence(self):
+		print(f'\n-----Longest Common Subsequence-----')
+		from LongestCommonSubsequence import main
+		test_cases = self.read_test_cases('LongestCommonSubsequence')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.longest_common_subsequence(test_case['input']['str1'], test_case['input']['str2'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]};\n\t'
+				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
+				  f'{Colors.OKCYAN}Result: {result};\n\t'
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
+
+		print('-----Longest Common Subsequence-----\n')
+		assert all_cases_passed
+
 	def test_four_number_sum(self):
 		print(f'\n-----Four Number Sum-----')
 		from FourNumberSum import main
