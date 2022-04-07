@@ -18,12 +18,10 @@ def longest_common_subsequence(str1, str2):
 
 
 def longest_common_subsequence_recursive_count(str1, str2, s1_len, s2_len):
-	# print(f'{str1}, {s1_len} || {str2}, {s2_len}')
 	if s1_len <= 0 or s2_len <= 0:
 		return 0
 
 	if str1[s1_len-1] == str2[s2_len-1]:
-		# print(f'{str1[s1_len-1]} == {str2[s2_len-1]}')
 		return 1 + longest_common_subsequence_recursive_count(str1, str2, s1_len-1, s2_len-1)
 	else:
 		return max(longest_common_subsequence_recursive_count(str1, str2, s1_len-1, s2_len),
