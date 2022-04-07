@@ -393,3 +393,22 @@ class TestSolutions(unittest.TestCase):
 
 		print('-----Four Number Sum-----\n')
 		assert all_cases_passed
+
+	def test_move_element_to_end(self):
+		print(f'\n-----Move Element To End-----')
+		from MoveElementToEnd import main
+		test_cases = self.read_test_cases('MoveElementToEnd')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.move_element_to_end(test_case['input']['array'], test_case['input']['toMove'])
+
+			# TODO: this check should be updated to ignore order of elements that are not "toMove"
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]};\n\t'
+				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
+				  f'{Colors.OKCYAN}Result: {result};\n\t'
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
+
+		print('-----Move Element To End-----\n')
+		assert all_cases_passed
