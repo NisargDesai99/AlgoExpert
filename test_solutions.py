@@ -385,7 +385,10 @@ class TestSolutions(unittest.TestCase):
 		for test_case in test_cases:
 			result = main.four_number_sum(test_case['input']['array'], test_case['input']['targetSum'])
 
-			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			# TODO: update  check to allow for different ordering of the same nums
+			# for quadruplet in result:
+			# 	all_cases_passed = all_cases_passed and (set(quadruplet) == )
+			all_cases_passed = all_cases_passed and (set(result) == set(test_case['expected_output']))
 			print(f'Inputs: {test_case["input"]};\n\t'
 				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
 				  f'{Colors.OKCYAN}Result: {result};\n\t'
@@ -411,4 +414,40 @@ class TestSolutions(unittest.TestCase):
 				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
 
 		print('-----Move Element To End-----\n')
+		assert all_cases_passed
+
+	def test_spiral_traverse(self):
+		print(f'\n-----Spiral Traverse-----')
+		from SpiralTraverse import main
+		test_cases = self.read_test_cases('SpiralTraverse')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.spiral_traverse(test_case['input'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]};\n\t'
+				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
+				  f'{Colors.OKCYAN}Result: {result};\n\t'
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
+
+		print('-----Spiral Traverse-----\n')
+		assert all_cases_passed
+
+	def test_largest_range(self):
+		print(f'\n-----Largest Range-----')
+		from LargestRange import main
+		test_cases = self.read_test_cases('LargestRange')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.largest_range(test_case['input'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			print(f'Inputs: {test_case["input"]};\n\t'
+				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
+				  f'{Colors.OKCYAN}Result: {result};\n\t'
+				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
+
+		print('-----Largest Range-----\n')
 		assert all_cases_passed
