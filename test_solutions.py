@@ -21,7 +21,8 @@ class Colors:
 
 class TestSolutions(unittest.TestCase):
 
-	def read_test_cases(self, problem_dir):
+	@staticmethod
+	def read_test_cases(problem_dir):
 		print(f'Reading test cases for {problem_dir}')
 		path = f'{global_vars.PROJECT_PATH}/{problem_dir}/test_cases.json'
 		test_cases_file = open(path)
@@ -29,11 +30,18 @@ class TestSolutions(unittest.TestCase):
 		test_cases_file.close()
 		return test_cases
 
+	@staticmethod
+	def display(test_case, result):
+		print(f'Inputs: {test_case["input"]};\n\t'
+			  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
+			  f'{Colors.OKCYAN}Result: {result};\n\t'
+			  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
+
 	def test_non_constructible_change(self):
 		print('\n-----Non-ConstructibleChange-----')
 		from NonConstructibleChange import main
 
-		test_cases = self.read_test_cases('NonConstructibleChange')
+		test_cases = TestSolutions.read_test_cases('NonConstructibleChange')
 
 		all_cases_passed = True
 		counter = 1
@@ -41,10 +49,7 @@ class TestSolutions(unittest.TestCase):
 			result = main.non_constructible_change(test_case['input'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
+			TestSolutions.display(test_case, result)
 			counter += 1
 
 		print('-----Non-ConstructibleChange-----\n')
@@ -54,7 +59,7 @@ class TestSolutions(unittest.TestCase):
 		# print('\n-----Validate Subsequence-----')
 		# from ValidateSubsequence import main
 
-		# test_cases = self.read_test_cases('ValidateSubsequence')
+		# test_cases = TestSolutions.TestSolutions.read_test_cases('ValidateSubsequence')
 
 		# all_cases_passed = True
 		# for test_case in test_cases:
@@ -72,18 +77,14 @@ class TestSolutions(unittest.TestCase):
 		print('\n-----Sorted Squared Array-----')
 		from SortedSquaredArray import main
 
-		test_cases = self.read_test_cases('SortedSquaredArray')
+		test_cases = TestSolutions.read_test_cases('SortedSquaredArray')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.sorted_squared_array(test_case['input'])
 
 			all_cases_passed = all_cases_passed and (test_case['expected_output'] == result)
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Sorted Squared Array-----\n')
 		assert all_cases_passed
 
@@ -91,25 +92,21 @@ class TestSolutions(unittest.TestCase):
 		print('\n-----Tournament Winner-----')
 		from TournamentWinner import main
 
-		test_cases = self.read_test_cases('TournamentWinner')
+		test_cases = TestSolutions.read_test_cases('TournamentWinner')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.tournament_winner(test_case['input']['competitions'], test_case['input']['results'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Tournament Winner-----\n')
 		assert all_cases_passed
 
 	def test_closest_value_bst(self):
 		# print('\n-----Closest Value BST-----')
 		# from ClosestValueBST import main
-		# test_cases = self.read_test_cases('ClosestValueBST')
+		# test_cases = TestSolutions.TestSolutions.read_test_cases('ClosestValueBST')
 		# # TEST CASES BST INPUTS IN PRE-ORDER
 		# # TODO: create BST with pre-order traversal
 
@@ -134,14 +131,14 @@ class TestSolutions(unittest.TestCase):
 	def test_branch_sum(self):
 		# print('\n-----Branch Sums-----')
 		# from BranchSums import main
-		# test_cases = self.read_test_cases('BranchSums')
+		# test_cases = TestSolutions.TestSolutions.read_test_cases('BranchSums')
 
 		# for test_case in test_cases:
 		# 	continue
 
 		# print('-----Branch Sums-----\n')
 		pass
-	
+
 
 	# TODO: finish tests for BST
 	# def test_bst_insert()
@@ -151,7 +148,7 @@ class TestSolutions(unittest.TestCase):
 	def test_validate_bst(self):
 		# print(f'\n-----Validate BST-----')
 		# from ValidateBST import main
-		# test_cases = self.read_test_cases('ValidateBST')
+		# test_cases = TestSolutions.TestSolutions.read_test_cases('ValidateBST')
 
 		# for test_case in test_cases:
 		# 	continue
@@ -162,187 +159,147 @@ class TestSolutions(unittest.TestCase):
 	def test_remove_islands(self):
 		print(f'\n-----Remove Islands-----')
 		from RemoveIslands import main
-		test_cases = self.read_test_cases('RemoveIslands')
+		test_cases = TestSolutions.read_test_cases('RemoveIslands')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.remove_islands(test_case['input'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Remove Islands-----\n')
 		assert all_cases_passed
 
 	def test_reverse_words_in_string(self):
 		print(f'\n-----Reverse Words In String-----')
 		from ReverseWordsInString import main
-		test_cases = self.read_test_cases('ReverseWordsInString')
+		test_cases = TestSolutions.read_test_cases('ReverseWordsInString')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.reverse_words_in_string(test_case['input'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Reverse Words In String-----\n')
 		assert all_cases_passed
 
 	def test_max_subset_sum_no_adjacent(self):
 		print(f'\n-----Max Subset Sum No Adjacent-----')
 		from MaxSubsetSumNoAdjacent import main
-		test_cases = self.read_test_cases('MaxSubsetSumNoAdjacent')
+		test_cases = TestSolutions.read_test_cases('MaxSubsetSumNoAdjacent')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.max_subset_sum_no_adjacent(test_case['input'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Max Subset Sum No Adjacent-----\n')
 		assert all_cases_passed
 
 	def test_number_of_ways_to_make_change(self):
 		print(f'\n-----Number Of Ways To Make Change-----')
 		from NumberOfWaysToMakeChange import main
-		test_cases = self.read_test_cases('NumberOfWaysToMakeChange')
+		test_cases = TestSolutions.read_test_cases('NumberOfWaysToMakeChange')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.num_ways_memoization(test_case['input']['n'], test_case['input']['denoms'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Number Of Ways To Make Change-----\n')
 		assert all_cases_passed
 
 	def test_min_num_coins_for_change(self):
 		print(f'\n-----Min Number Of Coins For Change-----')
 		from MinNumberOfCoinsForChange import main
-		test_cases = self.read_test_cases('MinNumberOfCoinsForChange')
+		test_cases = TestSolutions.read_test_cases('MinNumberOfCoinsForChange')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.min_num_coins_change_memoization(test_case['input']['n'], test_case['input']['denoms'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Min Number Of Coins For Change-----\n')
 		assert all_cases_passed
 
 	def test_num_ways_to_traverse_graph(self):
 		print(f'\n-----Number Of Ways To Traverse Graph-----')
 		from NumberOfWaysToTraverseGraph import main
-		test_cases = self.read_test_cases('NumberOfWaysToTraverseGraph')
+		test_cases = TestSolutions.read_test_cases('NumberOfWaysToTraverseGraph')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.num_ways_to_traverse_graph(test_case['input']['width'], test_case['input']['height'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Number Of Ways To Traverse Graph-----\n')
 		assert all_cases_passed
 
 	def test_knapsack_problem(self):
 		print(f'\n-----Knapsack Problem-----')
 		from KnapsackProblem import main
-		test_cases = self.read_test_cases('KnapsackProblem')
+		test_cases = TestSolutions.read_test_cases('KnapsackProblem')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.knapsack_problem(test_case['input']['items'], test_case['input']['capacity'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Knapsack Problem-----\n')
 		assert all_cases_passed
 
 	def test_min_number_of_jumps(self):
 		print(f'\n-----Min Number Of Jumps-----')
 		from MinNumberOfJumps import main
-		test_cases = self.read_test_cases('MinNumberOfJumps')
+		test_cases = TestSolutions.read_test_cases('MinNumberOfJumps')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.min_number_of_jumps(test_case['input'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Min Number Of Jumps-----\n')
 		assert all_cases_passed
 
 	def test_maximum_sum_submatrix(self):
 		print(f'\n-----Maximum Sum Submatrix-----')
 		from MaximumSumSubmatrix import main
-		test_cases = self.read_test_cases('MaximumSumSubmatrix')
+		test_cases = TestSolutions.read_test_cases('MaximumSumSubmatrix')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.maximum_sum_submatrix(test_case['input']['matrix'], test_case['input']['size'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Maximum Sum Submatrix-----\n')
 		assert all_cases_passed
 
 	def test_task_assignment(self):
 		print(f'\n-----Task Assignment-----')
 		from TaskAssignment import main
-		test_cases = self.read_test_cases('TaskAssignment')
+		test_cases = TestSolutions.read_test_cases('TaskAssignment')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.task_assignment(test_case['input']['k'], test_case['input']['tasks'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Task Assignment-----\n')
 		assert all_cases_passed
 
 	def test_flatten_binary_tree(self):
 		print(f'\n-----Flatten Binary Tree-----')
 		from FlattenBinaryTree import main
-		test_cases = self.read_test_cases('FlattenBinaryTree')
+		test_cases = TestSolutions.read_test_cases('FlattenBinaryTree')
 
 		# TODO: can't read weird structure given by website to represent trees
 		all_cases_passed = True
@@ -361,25 +318,21 @@ class TestSolutions(unittest.TestCase):
 	def test_longest_common_subsequence(self):
 		print(f'\n-----Longest Common Subsequence-----')
 		from LongestCommonSubsequence import main
-		test_cases = self.read_test_cases('LongestCommonSubsequence')
+		test_cases = TestSolutions.read_test_cases('LongestCommonSubsequence')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.longest_common_subsequence(test_case['input']['str1'], test_case['input']['str2'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Longest Common Subsequence-----\n')
 		assert all_cases_passed
 
 	def test_four_number_sum(self):
 		print(f'\n-----Four Number Sum-----')
 		from FourNumberSum import main
-		test_cases = self.read_test_cases('FourNumberSum')
+		test_cases = TestSolutions.read_test_cases('FourNumberSum')
 
 		all_cases_passed = True
 		for test_case in test_cases:
@@ -389,18 +342,14 @@ class TestSolutions(unittest.TestCase):
 			# for quadruplet in result:
 			# 	all_cases_passed = all_cases_passed and (set(quadruplet) == )
 			all_cases_passed = all_cases_passed and (set(result) == set(test_case['expected_output']))
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Four Number Sum-----\n')
 		assert all_cases_passed
 
 	def test_move_element_to_end(self):
 		print(f'\n-----Move Element To End-----')
 		from MoveElementToEnd import main
-		test_cases = self.read_test_cases('MoveElementToEnd')
+		test_cases = TestSolutions.read_test_cases('MoveElementToEnd')
 
 		all_cases_passed = True
 		for test_case in test_cases:
@@ -408,46 +357,65 @@ class TestSolutions(unittest.TestCase):
 
 			# TODO: this check should be updated to ignore order of elements that are not "toMove"
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Move Element To End-----\n')
 		assert all_cases_passed
 
 	def test_spiral_traverse(self):
 		print(f'\n-----Spiral Traverse-----')
 		from SpiralTraverse import main
-		test_cases = self.read_test_cases('SpiralTraverse')
+		test_cases = TestSolutions.read_test_cases('SpiralTraverse')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.spiral_traverse(test_case['input'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Spiral Traverse-----\n')
 		assert all_cases_passed
 
 	def test_largest_range(self):
 		print(f'\n-----Largest Range-----')
 		from LargestRange import main
-		test_cases = self.read_test_cases('LargestRange')
+		test_cases = TestSolutions.read_test_cases('LargestRange')
 
 		all_cases_passed = True
 		for test_case in test_cases:
 			result = main.largest_range(test_case['input'])
 
 			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
-			print(f'Inputs: {test_case["input"]};\n\t'
-				  f'{Colors.OKCYAN}Expected Output: {test_case["expected_output"]}\n\t'
-				  f'{Colors.OKCYAN}Result: {result};\n\t'
-				  f'{f"{Colors.OKGREEN}Passed{Colors.WHITE}" if test_case["expected_output"] == result else f"{Colors.FAIL}Failed"}{Colors.WHITE}')
-
+			TestSolutions.display(test_case, result)
 		print('-----Largest Range-----\n')
 		assert all_cases_passed
+
+	def test_levenshtein_distance(self):
+		print(f'\n-----Levenshtein Distance-----')
+		from LevenshteinDistance import main
+		test_cases = TestSolutions.read_test_cases('LevenshteinDistance')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.levenshtein_distance(test_case['input']['str1'], test_case['input']['str2'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			TestSolutions.display(test_case, result)
+
+		print('-----Levenshtein Distance-----\n')
+		assert all_cases_passed
+
+	def test_zigzag_traverse(self):
+		print(f'\n-----Zigzag Traverse-----')
+		from ZigzagTraverse import main
+		test_cases = TestSolutions.read_test_cases('ZigzagTraverse')
+
+		all_cases_passed = True
+		for test_case in test_cases:
+			result = main.zigzag_traverse(test_case['input'])
+
+			all_cases_passed = all_cases_passed and (result == test_case['expected_output'])
+			TestSolutions.display(test_case, result)
+
+		print('-----Zigzag Traverse-----\n')
+		assert all_cases_passed
+
